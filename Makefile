@@ -44,13 +44,10 @@ celery-logs:
 	$(docker_compose) logs --tail=1000 -f celery $(c)
 
 app-bash:
-	docker exec -it $(app_name)_dbackend bash $(c)
+	docker exec -it $(app_name)_backend bash $(c)
 
 db-bash:
 	docker exec -it $(app_name)_postgres bash $(c)
 
 psql:
 	docker exec -it $(app_name)_postgres psql -U postgres
-
-shell:
-	docker exec -it $(app_name)_backend python manage.py shell
