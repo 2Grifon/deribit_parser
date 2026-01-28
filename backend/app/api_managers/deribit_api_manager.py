@@ -2,7 +2,7 @@ import httpx
 from app.core.api_manager.base import ApiManager
 
 
-class DerebitAPIManager(ApiManager):
+class DeribitAPIManager(ApiManager):
     base_url = "https://www.deribit.com/api/v2/"
 
     def get_index_price(self, currency: str) -> float:

@@ -1,1 +1,1 @@
-from .derebit_api_manager import DerebitAPIManager
+from .deribit_api_manager import DeribitAPIManager
