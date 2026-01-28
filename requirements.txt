@@ -1,6 +1,0 @@
-fastapi[standard]==0.128.0
-psycopg[binary]==3.3.2
-pydantic==2.12.5 # pydantic подтягивается сам при установке fastapi, так что может быть стоит убрать его отсюда
-pydantic-settings==2.12.0
-sqlmodel==0.0.31
-uvicorn[standard]==0.38.0
