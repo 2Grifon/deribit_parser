@@ -17,3 +17,5 @@ COPY pyproject.toml ./
 # pip читает зависимости из pyproject.toml
 RUN pip install --upgrade pip \
     && pip install .
+
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
