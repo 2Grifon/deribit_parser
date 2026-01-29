@@ -16,7 +16,7 @@ if settings.all_cors_origins:
         allow_headers=["*"],
     )
 
-
+print(settings.SQLALCHEMY_DATABASE_URI)
 main_router = APIRouter(prefix="/api", tags=["API"])
 
 app.include_router(main_router)

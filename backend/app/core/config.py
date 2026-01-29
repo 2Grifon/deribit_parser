@@ -1,5 +1,5 @@
 from typing import Annotated, Any
-from pydantic import AnyUrl, BeforeValidator, PostgresDsn, computed_field
+from pydantic import AnyUrl, BeforeValidator, computed_field
 from pydantic_settings import BaseSettings
 
 
@@ -32,19 +32,8 @@ class Settings(BaseSettings):
 
     @computed_field
     @property
-    def SQLMODEL_DATABASE_URI(self) -> PostgresDsn:
-        return PostgresDsn.build(
-            scheme="postgresql+psycopg",
-            username=self.POSTGRES_USER,
-            password=self.POSTGRES_PASSWORD,
-            host=self.POSTGRES_HOST,
-            port=self.POSTGRES_PORT,
-            path=self.POSTGRES_DB,
-        )
-
-    @computed_field
-    @property
     def SQLALCHEMY_DATABASE_URI(self) -> str:
+
         return (
             f"postgresql+psycopg://"
             f"{self.POSTGRES_USER}:{self.POSTGRES_PASSWORD}@"

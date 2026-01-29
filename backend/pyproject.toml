@@ -24,6 +24,6 @@ target-version = ["py312"]
 exclude = '''
 /(
     \.venv
-  | migrations
+  | alembic/versions/.*
 )/
 '''

@@ -4,7 +4,7 @@ repos:
     hooks:
       # проверяет наличие переноса строки в конце всех текстовых файлов
       - id: end-of-file-fixer
-        exclude: ^.*\b(migrations)\b.*$
+        exclude: alembic/versions/.*
       # предупреждает о добавлении больших файлов в Git
       - id: check-added-large-files
       # предупреждает о сохранении файлов с UTF-8 BOM
@@ -18,9 +18,10 @@ repos:
     rev: 26.1.0
     hooks:
       - id: black
-        exclude: ^.*\b(migrations)\b.*$
+        exclude: alembic/versions/.*
 
   - repo: 'https://github.com/PyCQA/flake8'
     rev: 7.3.0
     hooks:
       - id: flake8
+        exclude: alembic/versions/.*

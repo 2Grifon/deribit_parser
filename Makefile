@@ -51,3 +51,23 @@ db-bash:
 
 psql:
 	docker exec -it $(app_name)_postgres psql -U postgres
+
+#Alembic
+
+alembic:
+	docker exec -it $(app_name)_backend alembic $(c)
+
+autogenerate:
+	docker exec -it $(app_name)_backend alembic revision --autogenerate -m "$(m)"
+
+upgrade:
+	docker exec -it $(app_name)_backend alembic upgrade head
+
+downgrade:
+	docker exec -it $(app_name)_backend alembic downgrade -1
+
+alembic-current:
+	docker exec -it $(app_name)_backend alembic current
+
+alembic-history:
+	docker exec -it $(app_name)_backend alembic history
