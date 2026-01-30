@@ -1,6 +1,7 @@
 from fastapi import APIRouter, FastAPI
 
 from app.core.config import settings
+from app.routes.index_price import index_router
 from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI(
@@ -16,7 +17,8 @@ if settings.all_cors_origins:
         allow_headers=["*"],
     )
 
-print(settings.SQLALCHEMY_DATABASE_URI)
 main_router = APIRouter(prefix="/api", tags=["API"])
+
+main_router.include_router(index_router)
 
 app.include_router(main_router)
