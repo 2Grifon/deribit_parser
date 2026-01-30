@@ -12,9 +12,6 @@ def parse_cors(v: Any) -> list[str] | str:
 
 
 class Settings(BaseSettings):
-    # Debug settings
-    DEBUG: bool = False
-
     # CORS settings
     CORS_ORIGIN_WHITELIST: Annotated[list[AnyUrl] | str, BeforeValidator(parse_cors)] = []
 
@@ -42,7 +39,6 @@ class Settings(BaseSettings):
         )
 
     # Application settings
-    ALLOWED_HOSTS: str
     CORS_ORIGIN_WHITELIST: str
 
     MEDIA_URL: str = "/media/"
